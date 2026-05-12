@@ -26,6 +26,6 @@ This project was created to improve frontend development skills by building a co
 The AI Assistant feature requires a valid API key configuration to function properly.
 
 ## Developer 👩‍💻
-
 Created by **Srushti CH**
+
 First complete dashboard project built as part of my web development journey..🌱
