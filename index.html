@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+StudyFlow AI Dashboard
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h1 class="logo">
+StudyFlow
+</h1>
+
+<div class="profile-card">
+
+<div class="avatar">
+S
+</div>
+
+<h2>
+Srushti CH
+</h2>
+
+<p>
+AI Student Dashboard
+</p>
+
+</div>
+
+<div class="menu">
+
+<button onclick="showSection('dashboardPage')">
+🏠 Dashboard
+</button>
+
+<button onclick="showSection('subjectsPage')">
+📚 Subjects
+</button>
+
+<button onclick="showSection('tasksPage')">
+✅ Assignments
+</button>
+
+<button onclick="showSection('analyticsPage')">
+📊 Analytics
+</button>
+
+<button onclick="showSection('assistantPage')">
+🤖 AI Assistant
+</button>
+
+</div>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<!-- DASHBOARD -->
+
+<div id="dashboardPage"
+class="page">
+
+<div class="topbar">
+
+<div>
+
+<h1>
+Productivity Dashboard
+</h1>
+
+<p>
+Track your study progress smarter 🚀
+</p>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="resourceSearch"
+placeholder="Search study resources..."
+>
+
+<button onclick="searchResources()">
+Search
+</button>
+
+</div>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Total Study Hours
+</h3>
+
+<h1 id="studyHours">
+0
+</h1>
+
+<p>
+Real tracked study time
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Completed Tasks
+</h3>
+
+<h1 id="completedCount">
+0
+</h1>
+
+<p>
+Tasks completed today
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Productivity
+</h3>
+
+<h1 id="productivity">
+0%
+</h1>
+
+<p>
+Based on your actual work
+</p>
+
+</div>
+
+</div>
+
+<!-- GRAPH -->
+
+<div class="graph-section">
+
+<h2>
+Weekly Study Analytics
+</h2>
+
+<div class="graph">
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+</div>
+
+</div>
+
+<!-- SEARCH RESULTS -->
+
+<div id="searchResults">
+
+</div>
+
+</div>
+
+<!-- SUBJECTS -->
+
+<div id="subjectsPage"
+class="page"
+style="display:none;">
+
+<h1 class="page-title">
+Subjects Progress
+</h1>
+
+<div class="subjects-section">
+
+<!-- PYTHON -->
+
+<div class="subject-card">
+
+<div class="subject-info">
+
+<h3>
+Python
+</h3>
+
+<p id="pythonHours">
+0 hrs studied
+</p>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar"
+id="pythonBar">
+</div>
+
+</div>
+
+<button onclick="startStudy('python')">
+
+Start Python Session
+
+</button>
+
+</div>
+
+<!-- AIML -->
+
+<div class="subject-card">
+
+<div class="subject-info">
+
+<h3>
+AI & ML
+</h3>
+
+<p id="aimlHours">
+0 hrs studied
+</p>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar"
+id="aimlBar">
+</div>
+
+</div>
+
+<button onclick="startStudy('aiml')">
+
+Start AI & ML Session
+
+</button>
+
+</div>
+
+<!-- DBMS -->
+
+<div class="subject-card">
+
+<div class="subject-info">
+
+<h3>
+DBMS
+</h3>
+
+<p id="dbmsHours">
+0 hrs studied
+</p>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar"
+id="dbmsBar">
+</div>
+
+</div>
+
+<button onclick="startStudy('dbms')">
+
+Start DBMS Session
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TASKS -->
+
+<div id="tasksPage"
+class="page"
+style="display:none;">
+
+<h1 class="page-title">
+
+Today's Tasks
+
+</h1>
+
+<button class="add-btn"
+onclick="addTomorrowTask()">
+
++ Add Tomorrow Task
+
+</button>
+
+<div id="taskContainer">
+
+</div>
+
+</div>
+
+<!-- ANALYTICS -->
+
+<div id="analyticsPage"
+class="page"
+style="display:none;">
+
+<h1 class="page-title">
+
+Study Session Tracker
+
+</h1>
+
+<div class="timer-box">
+
+<div id="timer">
+
+00:00:00
+
+</div>
+
+<div class="timer-buttons">
+
+<button onclick="startStudy('python')">
+
+Start
+
+</button>
+
+<button onclick="stopStudy()">
+
+Stop
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- AI ASSISTANT -->
+
+<div id="assistantPage"
+class="page"
+style="display:none;">
+
+<h1 class="page-title">
+
+AI Assistant
+
+</h1>
+
+<div class="chat-box">
+
+<div id="chatArea"
+class="chat-area">
+
+<div class="bot-msg">
+
+Hello 👋
+Ask me anything.
+
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="userInput"
+placeholder="Ask something..."
+>
+
+<button onclick="sendMessage()">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
