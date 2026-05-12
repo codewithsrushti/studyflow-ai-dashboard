@@ -334,7 +334,7 @@ async function sendMessage(){
 
 const API_KEY = "YOUR_API_KEY";
 
-const MODEL = "gemini-2.0-flash";
+const MODEL = "openai/gpt-3.5-turbo";
 
 const input =
 document.getElementById("userInput");
